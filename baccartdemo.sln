@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.001.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BaccartContract", "src\BaccartContract.csproj", "{6F90610F-2355-41DC-9C7F-8080858E6330}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BaccartContract.Tests", "test\BaccartContract.Tests.csproj", "{E3917884-B0C8-4414-B473-80D21D083298}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6F90610F-2355-41DC-9C7F-8080858E6330}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6F90610F-2355-41DC-9C7F-8080858E6330}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6F90610F-2355-41DC-9C7F-8080858E6330}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6F90610F-2355-41DC-9C7F-8080858E6330}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E3917884-B0C8-4414-B473-80D21D083298}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E3917884-B0C8-4414-B473-80D21D083298}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E3917884-B0C8-4414-B473-80D21D083298}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E3917884-B0C8-4414-B473-80D21D083298}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C7ACA735-1202-4B19-902F-F7E1D974D253}
+	EndGlobalSection
+EndGlobal
