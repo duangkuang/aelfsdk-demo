@@ -16,7 +16,7 @@
     </Target>
 
     <ItemGroup>
-      <None Remove="Protobuf\contract\acs12.proto" />
+      <None Remove="Protobuf\reference\acs12.proto" />
       <None Remove="Protobuf\contract\baccart_contract.proto" />
       <None Remove="Protobuf\message\authority_info.proto" />
     </ItemGroup>
@@ -30,11 +30,18 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Protobuf Include="Protobuf\contract\acs12.proto" ContractServices="Server" />
       <Protobuf Include="Protobuf\contract\baccart_contract.proto" ContractServices="Server">
         <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       </Protobuf>
       <Protobuf Include="Protobuf\message\authority_info.proto" ContractServices="Server" />
+      <Protobuf Include="Protobuf\reference\acs12.proto">
+        <Access>Public</Access>
+        <ProtoCompile>True</ProtoCompile>
+        <CompileOutputs>True</CompileOutputs>
+        <OutputDir>obj\Debug/net6.0/</OutputDir>
+        <Generator>MSBuild:Compile</Generator>
+        <ContractServices>Server</ContractServices>
+      </Protobuf>
     </ItemGroup>
 
 </Project>
