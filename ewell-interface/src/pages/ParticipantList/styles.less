@@ -1,0 +1,33 @@
+@import '@assets/theme/color.less';
+
+.participant-list-wrapper {
+  padding-top: 24px;
+  padding-bottom: 48px;
+  .bread-wrap {
+    margin-bottom: 24px;
+  }
+  .participant-header {
+    margin-bottom: 24px;
+    .address-search {
+      width: 437px;
+      &:not(:hover, :focus, :focus-within) {
+        border-color: @border-1;
+      }
+    }
+  }
+  .table {
+    margin-bottom: 16px;
+    .order-column {
+      min-width: 65px;
+    }
+    .address-column {
+      min-width: 219px;
+    }
+    .invest-count-column {
+      min-width: 148px;
+    }
+    .time-column {
+      min-width: 176px;
+    }
+  }
+}

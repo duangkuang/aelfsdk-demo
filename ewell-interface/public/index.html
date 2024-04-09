@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, user-scalable=no, maximum-scale=1, minimum-scale=1"
+    />
+    <meta name="theme-color" content="#000000" />
+    <meta name="description" content="Web site created using create-react-app" />
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/favicon.ico" />
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <title>ewell</title>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-B06JCYCEWS"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
+
+      gtag('config', 'G-B06JCYCEWS');
+    </script>
+  </head>
+  <body>
+    <script>
+      (function (doc, win, undefined) {
+        var docEl = doc.documentElement,
+          resizeEvt = 'orientationchange' in win ? 'orientationchange' : 'resize';
+        recalc = function () {
+          var clientWidth = docEl.clientWidth;
+          if (clientWidth === undefined) return;
+          docEl.style.fontSize = (clientWidth * 14) / 375 + 'px';
+        };
+        if (doc.addEventListener === undefined) return;
+        win.addEventListener(resizeEvt, recalc, false);
+        doc.addEventListener('DOMContentLoaded', recalc, false);
+      })(document, window);
+    </script>
+    <noscript>Dedicated to facilitating DApps' fundraising.</noscript>
+    <div id="root"></div>
+  </body>
+</html>

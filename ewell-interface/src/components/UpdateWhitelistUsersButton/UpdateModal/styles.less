@@ -1,0 +1,65 @@
+@import '@assets/theme/color.less';
+
+.update-whitelist-users {
+  .download-template {
+    margin-left: 8px;
+  }
+  .update-way-radio-wrapper {
+    height: 40px;
+    padding: 1px;
+    border: 1px solid @border-1;
+    border-radius: 8px;
+    .radio-item {
+      flex: 1;
+      &:first-child {
+        border-radius: 6px 0 0 6px;
+      }
+      &:last-child {
+        border-radius: 0 6px 6px 0;
+      }
+      &.radio-item-active {
+        background-color: @bg-1;
+        .@{app-prefix}-typography {
+          color: @font-4;
+        }
+      }
+    }
+  }
+  .address-upload,
+  .address-upload .@{app-prefix}-upload-list-picture-card,
+  .paste-address-textarea {
+    height: 240px;
+  }
+  .address-upload {
+    .@{app-prefix}-upload-list-picture-card {
+      .@{app-prefix}-upload-list-item-container > div {
+        margin-bottom: 0;
+      }
+    }
+    .address-upload-tips {
+      margin-top: 4px;
+    }
+  }
+  .paste-address-textarea {
+    resize: none;
+  }
+  .modal-footer-button {
+    width: 206px;
+  }
+}
+
+.update-whitelist-users-drawer {
+  .content-wrapper {
+    min-height: 100%;
+  }
+  .paste-address-textarea {
+    flex: 1;
+    min-height: 240px;
+  }
+  .footer-wrapper {
+    align-items: flex-end;
+  }
+  .modal-footer-button {
+    flex: 1;
+  }
+}

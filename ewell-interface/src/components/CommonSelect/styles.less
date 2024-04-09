@@ -1,0 +1,27 @@
+@import '../../assets/theme/color.less';
+.common-select{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  color: @font-1;
+  .@{app-prefix}-select{
+    width: 100%;
+  }
+  .@{app-prefix}-col:nth-child(1){
+    margin:0 10px;
+    text-align: right;
+  }
+}
+@media (max-width:992px){
+  .common-select{
+    flex-direction:column;
+    .@{app-prefix}-col:nth-child(1){
+      text-align: left;
+      width: 100%;
+      margin-bottom: 10px;
+    }
+    .@{app-prefix}-col-sm-23{
+      min-width: 95.8333%;
+    }
+  }
+}

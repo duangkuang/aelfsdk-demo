@@ -1,0 +1,75 @@
+@import '@assets/theme/color.less';
+
+.trading-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 12px 16px;
+  border-radius: 8px;
+  box-sizing: border-box;
+  border: 1px solid @font-1;
+  margin-bottom: 24px;
+  cursor: pointer;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  .card-left {
+    display: flex;
+    align-items: center;
+
+    .token-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 24px;
+      margin-right: 8px;
+    }
+    .token-img-bg {
+      color: @font-4;
+      background-color: @bg-1;
+      text-align: center;
+      line-height: 48px;
+      font-size: 28px;
+      font-weight: bold;
+    }
+
+    .token-name {
+      font-size: 16px;
+      line-height: 24px;
+    }
+    .chain-info {
+      font-size: 12px;
+      line-height: 20px;
+    }
+  }
+
+  &.active {
+    background-color: @bg-1;
+    color: @font-4;
+    .card-left {
+      .token-img-bg {
+        color: @font-1;
+        background-color: @bg-9;
+      }
+    }
+  }
+
+  &:hover {
+    color: @font-4;
+    background-color: @bg-12;
+    .card-left {
+      .token-img-bg {
+        color: @font-1;
+        background-color: @bg-9;
+      }
+    }
+  }
+
+  .token-quantity {
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 500;
+  }
+}

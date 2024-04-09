@@ -1,0 +1,52 @@
+@import './color.less';
+.utils-modal {
+  .@{app-prefix}-modal-content {
+    border-radius: 10px;
+    overflow: hidden;
+    min-width: 500px;
+  }
+  .@{app-prefix}-modal-body {
+    padding: 24px 40px;
+    .@{app-prefix}-modal-confirm-title {
+      text-align: center;
+      font-size: 22px;
+      border-bottom: 1px solid @border-4;
+      padding-bottom: 15px;
+    }
+    .@{app-prefix}-modal-confirm-content {
+      margin: 20px 30px;
+      margin-top: 40px;
+      text-align: center;
+      color: @font-3;
+    }
+  }
+  .@{app-prefix}-modal-confirm-btns {
+    width: 100%;
+    display: flex;
+  }
+  .@{app-prefix}-modal-close-x {
+    line-height: 30px;
+    margin-top: 24px;
+    height: 20px;
+  }
+}
+.mobile-site {
+  .utils-modal {
+    .@{app-prefix}-modal {
+      width: calc(100vw - 40px) !important;
+    }
+    .@{app-prefix}-modal-content {
+      min-width: auto;
+    }
+    .@{app-prefix}-modal-body {
+      padding: 24px 30px;
+    }
+    .@{app-prefix}-modal-confirm-btns {
+      display: block;
+    }
+    .@{app-prefix}-modal-confirm-btns .@{app-prefix}-btn + .@{app-prefix}-btn {
+      margin-left: 0;
+      margin-top: 13px;
+    }
+  }
+}

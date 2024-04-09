@@ -1,0 +1,43 @@
+@import '@assets/theme/color.less';
+
+.whitelist-users-address-validation {
+  .info-wrapper {
+    .info-row {
+      padding: 4px 0;
+    }
+  }
+  .@{app-prefix}-table-body {
+    padding-top: 20px;
+  }
+  .@{app-prefix}-hash-address span {
+    color: @font-1;
+  }
+  .footer-wrapper {
+    button {
+      width: 206px;
+    }
+  }
+}
+
+.whitelist-users-address-validation-drawer {
+  .content-wrapper {
+    height: 100%;
+  }
+  .table-wrapper {
+    flex: 1;
+    overflow: scroll;
+    border: 1px solid;
+    border-radius: 6px;
+    .@{app-prefix}-table-container {
+      border: none;
+    }
+    .@{app-prefix}-table-tbody > tr > td {
+      padding: 14px 16px;
+    }
+  }
+  .footer-wrapper {
+    button {
+      flex: 1;
+    }
+  }
+}

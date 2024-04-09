@@ -1,0 +1,85 @@
+@import '@assets/theme/color.less';
+
+.create-project {
+  width: 100%;
+  caret-color: @font-2;
+
+  .project-nav {
+    padding: 24px 0;
+  }
+  .project-wrapper {
+    max-width: 898px;
+    margin: auto;
+  }
+
+  .project-wrapper-full {
+    max-width: 100%;
+    padding-top: 24px;
+  }
+
+  .form-page {
+    margin-top: 48px;
+  }
+
+  .form-item-width-437 {
+    max-width: 437px;
+  }
+
+  .form-item-width-full {
+    width: 100%;
+  }
+
+  .flex-grow {
+    flex-grow: 1;
+  }
+
+  .margin-left-8 {
+    margin-left: 8px;
+  }
+
+  .form-upload label {
+    pointer-events: none;
+
+    .@{app-prefix}-form-item-tooltip {
+      pointer-events: all;
+    }
+  }
+
+  .form-upload-tips {
+    color: @font-1;
+    text-align: center;
+    font-size: 12px;
+    line-height: 18px;
+  }
+
+  .@{app-prefix}-steps .@{app-prefix}-steps-item-wait .@{app-prefix}-steps-item-icon {
+    background-color: transparent;
+    border: 1px solid @border-6;
+  }
+
+  .@{app-prefix}-input-outlined:focus-within,
+  .@{app-prefix}-picker-outlined:focus-within,
+  .@{app-prefix}-input-number-outlined:focus-within {
+    border-color: @border-5;
+  }
+
+  .@{app-prefix}-input-outlined.@{app-prefix}-input-disabled,
+  .@{app-prefix}-picker-outlined.@{app-prefix}-picker-disabled:hover:not([disabled]),
+  .@{app-prefix}-picker-outlined.@{app-prefix}-picker-disabled,
+  .@{app-prefix}-select-outlined.@{app-prefix}-select-disabled:not(.@{app-prefix}-select-customize-input)
+    .@{app-prefix}-select-selector {
+    border-color: @border-7;
+  }
+
+  .@{app-prefix}-picker {
+    .@{app-prefix}-picker-suffix {
+      color: @font-1;
+    }
+  }
+
+  .@{app-prefix}-picker-disabled {
+    .@{app-prefix}-picker-suffix {
+      color: @font-8;
+    }
+  }
+}

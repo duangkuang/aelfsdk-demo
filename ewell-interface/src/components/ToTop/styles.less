@@ -1,0 +1,24 @@
+@import '@assets/theme/color.less';
+
+.scroll-to-top {
+  cursor: pointer;
+  height: 50px;
+  width: 50px;
+  text-align: center;
+  border-radius: 50%;
+  box-shadow: 0 0 3px @shadow-1;
+  background: @shadow-1;
+  color: white;
+  font-size: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mobile-site {
+  .scroll-to-top {
+    height: 40px;
+    width: 40px;
+    font-size: 25px;
+  }
+}

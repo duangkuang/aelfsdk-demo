@@ -1,0 +1,27 @@
+@import '@assets/theme/color.less';
+
+.project-info-wrapper {
+  flex: 1 1 60%;
+  gap: 24px;
+  overflow: hidden;
+  .info-wrapper {
+    gap: 24px;
+    overflow: hidden;
+  }
+  .info-header {
+    gap: 8px;
+    .project-summary {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 22px;
+      color: @font-1;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .project-info-wrapper {
+    flex-direction: column;
+    gap: 12px;
+  }
+}

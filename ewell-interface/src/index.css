@@ -1,0 +1,18 @@
+@font-face {
+  font-family: D-DIN-Bold;
+  src: url('./assets/fonts/D-DIN-Bold.ttf');
+  font-weight: 400;
+  font-display: swap;
+}
+
+body {
+  margin: 0;
+  /* stylelint-disable-next-line font-family-no-missing-generic-family-keyword */
+  font-family: Roboto;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}

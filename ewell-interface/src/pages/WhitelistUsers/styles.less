@@ -1,0 +1,32 @@
+@import '@assets/theme/color.less';
+
+.whitelist-users-wrapper {
+  padding-top: 24px;
+  padding-bottom: 48px;
+  .bread-wrap {
+    margin-bottom: 24px;
+  }
+  .update-button {
+    width: 142px;
+  }
+  .address-search {
+    width: 328px;
+    &:not(:hover, :focus, :focus-within) {
+      border-color: @border-1;
+    }
+  }
+  .@{app-prefix}-table {
+    .@{app-prefix}-hash-address {
+      display: inline-flex;
+    }
+  }
+  .order-column {
+    min-width: 98px;
+  }
+  .address-column {
+    min-width: 296px;
+  }
+  .time-column {
+    min-width: 212px;
+  }
+}

@@ -1,0 +1,197 @@
+@import '../theme/color.less';
+
+/* button */
+.@{app-prefix}-btn-dangerous.@{app-prefix}-btn-link span {
+  text-decoration: underline;
+}
+
+/* modal */
+.@{app-prefix}-modal-content {
+  .@{app-prefix}-modal-close:hover svg path {
+    fill: @font-1 !important;
+  }
+  .@{app-prefix}-modal-header {
+    margin-bottom: 24px !important;
+    .@{app-prefix}-modal-title {
+      padding-left: 16px;
+      text-align: center;
+    }
+  }
+  .modal-box-data-wrapper {
+    padding: 16px;
+    border: 1px solid @border-1;
+    border-radius: 6px;
+  }
+  .modal-single-button {
+    width: 206px;
+  }
+}
+
+/* tooltip */
+.@{app-prefix}-tooltip .@{app-prefix}-tooltip-inner {
+  min-width: auto;
+  min-height: auto;
+}
+
+/** table **/
+.@{app-prefix}-table-container:not(:has(> .@{app-prefix}-table-wrapper)) {
+  border: 1px solid;
+  border-radius: 6px;
+}
+// To increase the weight of the css selector
+.@{app-prefix}-table-wrapper .@{app-prefix}-spin-container .@{app-prefix}-table {
+  .@{app-prefix}-table-container {
+    overflow: hidden;
+    &::after {
+      display: none;
+    }
+    table {
+      .@{app-prefix}-table-thead tr .@{app-prefix}-table-cell {
+        padding: 13px 16px;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+      }
+      .@{app-prefix}-table-tbody tr .@{app-prefix}-table-cell {
+        border-bottom: none;
+        border-bottom-left-radius: 6px;
+        border-bottom-right-radius: 6px;
+      }
+    }
+  }
+}
+
+/** tabs **/
+.@{app-prefix}-tabs-nav {
+  &::before {
+    border: none !important;
+  }
+  .@{app-prefix}-tabs-tab-btn {
+    font-weight: 500;
+  }
+}
+
+/** inputNumber **/
+.@{app-prefix}-input-number-wrapper {
+  &:hover:not(:has(> .@{app-prefix}-input-number-disabled)) {
+    .@{app-prefix}-input-number,
+    .@{app-prefix}-input-number-group-addon {
+      border-color: @border-4;
+    }
+  }
+  &:hover:has(> .@{app-prefix}-input-number-status-error) {
+    .@{app-prefix}-input-number,
+    .@{app-prefix}-input-number-group-addon {
+      border-color: @border-2;
+    }
+  }
+  .@{app-prefix}-input-number {
+    caret-color: @font-2;
+  }
+  .@{app-prefix}-input-number-focused {
+    border-color: @border-5;
+    & + .@{app-prefix}-input-number-group-addon {
+      border-color: @border-5;
+    }
+    &.@{app-prefix}-input-number-status-error {
+      border-color: @border-2;
+      & + .@{app-prefix}-input-number-group-addon {
+        border-color: @border-2;
+      }
+    }
+  }
+}
+
+/** input **/
+.@{app-prefix}-input-clear-icon {
+  svg path {
+    fill: @font-7 !important;
+  }
+}
+
+/** switch **/
+.@{app-prefix}-switch-small {
+  width: 28px;
+}
+
+/** hashAddress **/
+.@{app-prefix}-hash-address {
+  &.hash-address-small {
+    div:nth-child(2) {
+      margin-left: 4px;
+    }
+  }
+}
+
+/** loading **/
+.@{app-prefix}-loading {
+  width: auto !important;
+  transform-origin: 50% 50% !important;
+}
+
+/** upload **/
+.@{app-prefix}-upload {
+  .@{app-prefix}-upload-button {
+    min-height: 240px;
+  }
+}
+
+.@{app-prefix}-form-item .@{app-prefix}-form-item-label > label .@{app-prefix}-form-item-tooltip {
+  order: 2;
+  color: @font-1;
+}
+.@{app-prefix}-form-vertical .@{app-prefix}-form-item-label > label::after {
+  display: none;
+}
+
+/** pagination **/
+// To increase the weight of the css selector
+button.@{app-prefix}-pagination-button,
+div.@{app-prefix}-pageNumber-container {
+  padding: 0 16px;
+  border-radius: 6px;
+}
+button.@{app-prefix}-pagination-button {
+  &[disabled] {
+    color: @font-8;
+    background-color: @bg-11;
+    border: none;
+  }
+}
+div.@{app-prefix}-pageNumber-container {
+  background-color: @bg-10;
+}
+
+/** breadcrumb **/
+.@{app-prefix}-breadcrumb {
+  a:hover {
+    background-color: transparent;
+  }
+}
+
+/** select dropdown **/
+.@{app-prefix}-select-dropdown {
+  padding: 0;
+  border-radius: 6px;
+  border: 1px solid @border-1;
+  box-shadow: none;
+}
+.@{app-prefix}-select-dropdown .@{app-prefix}-select-item-option-active:not(.@{app-prefix}-select-itemoption-disabled) {
+  background-color: @bg-10;
+}
+
+/** mobile datePicker **/
+.adm-picker {
+  border-radius: 8px 8px 0 0;
+}
+.adm-picker-header-button {
+  color: @font-2 !important;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+/** pc datePicker **/
+.@{app-prefix}-picker {
+  .@{app-prefix}-picker-suffix {
+    color: @font-1;
+  }
+}

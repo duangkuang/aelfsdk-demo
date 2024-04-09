@@ -1,0 +1,33 @@
+@import './assets/theme/customer.theme.less';
+
+* {
+  box-sizing: border-box;
+}
+
+.ewell-ui-root {
+  height: 100vh;
+  min-width: 360px;
+  position: relative;
+  overflow: auto;
+}
+
+.page-container {
+  color: @font-1;
+  overflow: auto;
+}
+.page-body {
+  background: white;
+  min-height: calc(100vh - @footer-height - @header-height);
+}
+
+@supports (-webkit-touch-callout: none) {
+  .ewell-ui-root {
+    height: fill-available;
+  }
+}
+
+.mobile-site {
+  .page-body {
+    min-height: calc(100vh - @mobile-footer-height - @header-height);
+  }
+}

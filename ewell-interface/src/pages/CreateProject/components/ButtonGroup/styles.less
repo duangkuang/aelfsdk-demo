@@ -1,0 +1,45 @@
+@import '@assets/theme/color.less';
+
+.create-btn-group {
+  font-size: 16px;
+  .group-btn {
+    flex:1;
+    max-width: 206px;
+    
+    &.disabled {
+      background-color: @bg-11;
+      border-color: @border-8;
+      color: @font-8;
+
+      &:hover {
+        border-color: @border-8;
+        color: @font-8 !important;
+      }
+    }
+
+    .arrow-icon {
+      width: 16px;
+      height: 16px;
+    }
+  }
+
+  .pre-btn {
+    .arrow-icon {
+      transform: rotate(90deg);
+      margin-right: 8px;
+    }
+  }
+
+  .next-btn {
+    color: @font-4;
+    background-color: @bg-1;
+
+    &:hover {
+      color: @font-4 !important;
+    }
+
+    .arrow-icon {
+      margin-left: 8px;
+    }
+  }
+}

@@ -1,0 +1,56 @@
+@import '../../../../assets/theme/color.less';
+
+.menu-community-item-wrap {
+  display: flex;
+  width: 100%;
+  padding: 16px;
+  background: @bg-9;
+  cursor: pointer;
+
+  .menu-community-item-icon-wrap {
+    width: 24px;
+    margin-right: 12px;
+    flex-shrink: 0;
+    .menu-community-item-icon {
+      width: 100%;
+    }
+  }
+  .menu-community-item-body-wrap {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+
+    .menu-community-item-title {
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 22px;
+      color: @font-1;
+      text-align: left;
+      word-wrap: break-word;
+      white-space: break-spaces;
+    }
+    .menu-community-item-content {
+      font-size: 12px;
+      line-height: 20px;
+      color: @font-1;
+      text-align: left;
+      word-wrap: break-word;
+      white-space: break-spaces;
+    }
+  }
+
+  &:hover {
+    background-color: @bg-10;
+  }
+}
+
+.mobile-site {
+  .menu-community-item-wrap {
+    &:active {
+      background-color: @bg-10 !important;
+    }
+    &:hover {
+      background-color: unset;
+    }
+  }
+}

@@ -1,0 +1,328 @@
+{
+  "nested": {
+    "ListMarketInfo": {
+      "fields": {
+        "data": {
+          "rule": "repeated",
+          "type": "ListMarket",
+          "id": 1
+        }
+      }
+    },
+    "ListMarket": {
+      "fields": {
+        "market": {
+          "type": "string",
+          "id": 1
+        },
+        "weight": {
+          "type": "int32",
+          "id": 2
+        }
+      }
+    },
+    "AdditionalInfo": {
+      "fields": {
+        "data": {
+          "type": "string",
+          "id": 1
+        }
+      }
+    },
+    "Transaction": {
+      "fields": {
+        "from": {
+          "type": "Address",
+          "id": 1
+        },
+        "to": {
+          "type": "Address",
+          "id": 2
+        },
+        "refBlockNumber": {
+          "type": "int64",
+          "id": 3
+        },
+        "refBlockPrefix": {
+          "type": "bytes",
+          "id": 4
+        },
+        "methodName": {
+          "type": "string",
+          "id": 5
+        },
+        "params": {
+          "type": "bytes",
+          "id": 6
+        },
+        "signature": {
+          "type": "bytes",
+          "id": 10000
+        }
+      }
+    },
+    "Address": {
+      "fields": {
+        "value": {
+          "type": "bytes",
+          "id": 1
+        }
+      }
+    },
+    "Hash": {
+      "fields": {
+        "value": {
+          "type": "bytes",
+          "id": 1
+        }
+      }
+    },
+    "MerklePath": {
+      "fields": {
+        "merklePathNodes": {
+          "rule": "repeated",
+          "type": "MerklePathNode",
+          "id": 1
+        }
+      }
+    },
+    "MerklePathNode": {
+      "fields": {
+        "hash": {
+          "type": "Hash",
+          "id": 1
+        },
+        "isLeftChildNode": {
+          "type": "bool",
+          "id": 2
+        }
+      }
+    },
+    "BinaryMerkleTree": {
+      "fields": {
+        "nodes": {
+          "rule": "repeated",
+          "type": "Hash",
+          "id": 1
+        },
+        "root": {
+          "type": "Hash",
+          "id": 2
+        },
+        "leafCount": {
+          "type": "int32",
+          "id": 3
+        }
+      }
+    },
+    "TransactionFeeCharged": {
+      "fields": {
+        "symbol": {
+          "type": "string",
+          "id": 1
+        },
+        "amount": {
+          "type": "int64",
+          "id": 2
+        }
+      }
+    },
+    "ResourceTokenCharged": {
+      "fields": {
+        "symbol": {
+          "type": "string",
+          "id": 1
+        },
+        "amount": {
+          "type": "int64",
+          "id": 2
+        },
+        "contractAddress": {
+          "type": "Address",
+          "id": 3
+        }
+      }
+    },
+    "ResourceTokenOwned": {
+      "fields": {
+        "symbol": {
+          "type": "string",
+          "id": 1
+        },
+        "amount": {
+          "type": "int64",
+          "id": 2
+        }
+      }
+    },
+    "Swap": {
+      "fields": {
+        "sender": {
+          "type": "Address",
+          "id": 1
+        },
+        "symbolIn": {
+          "type": "string",
+          "id": 2
+        },
+        "symbolOut": {
+          "type": "string",
+          "id": 3
+        },
+        "amountIn": {
+          "type": "int64",
+          "id": 4
+        },
+        "amountOut": {
+          "type": "int64",
+          "id": 5
+        },
+        "totalFee": {
+          "type": "int64",
+          "id": 6
+        },
+        "pair": {
+          "type": "Address",
+          "id": 7
+        },
+        "to": {
+          "type": "Address",
+          "id": 8
+        },
+        "channel": {
+          "type": "string",
+          "id": 9
+        }
+      }
+    },
+    "google": {
+      "nested": {
+        "protobuf": {
+          "nested": {
+            "Timestamp": {
+              "fields": {
+                "seconds": {
+                  "type": "int64",
+                  "id": 1
+                },
+                "nanos": {
+                  "type": "int32",
+                  "id": 2
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "NewWhitelistIdSet": {
+      "fields": {
+        "projectId": {
+          "type": "Hash",
+          "id": 1
+        },
+        "whitelistId": {
+          "type": "Hash",
+          "id": 2
+        }
+      }
+    },
+    "ProjectRegistered": {
+      "fields": {
+        "projectId": {
+          "type": "Hash",
+          "id": 1
+        },
+        "acceptedSymbol": {
+          "type": "string",
+          "id": 2
+        },
+        "projectSymbol": {
+          "type": "string",
+          "id": 3
+        },
+        "crowdFundingType": {
+          "type": "string",
+          "id": 4
+        },
+        "crowdFundingIssueAmount": {
+          "type": "int64",
+          "id": 5
+        },
+        "preSalePrice": {
+          "type": "int64",
+          "id": 6
+        },
+        "startTime": {
+          "type": ".google.protobuf.Timestamp",
+          "id": 7
+        },
+        "endTime": {
+          "type": ".google.protobuf.Timestamp",
+          "id": 8
+        },
+        "minSubscription": {
+          "type": "int64",
+          "id": 9
+        },
+        "maxSubscription": {
+          "type": "int64",
+          "id": 10
+        },
+        "publicSalePrice": {
+          "type": "int64",
+          "id": 11
+        },
+        "listMarketInfo": {
+          "type": "ListMarketInfo",
+          "id": 12
+        },
+        "liquidityLockProportion": {
+          "type": "int32",
+          "id": 13
+        },
+        "unlockTime": {
+          "type": ".google.protobuf.Timestamp",
+          "id": 14
+        },
+        "isEnableWhitelist": {
+          "type": "bool",
+          "id": 15
+        },
+        "whitelistId": {
+          "type": "Hash",
+          "id": 16
+        },
+        "isBurnRestToken": {
+          "type": "bool",
+          "id": 17
+        },
+        "totalPeriod": {
+          "type": "int32",
+          "id": 18
+        },
+        "additionalInfo": {
+          "type": "AdditionalInfo",
+          "id": 19
+        },
+        "targetRaisedAmount": {
+          "type": "int64",
+          "id": 20
+        },
+        "creator": {
+          "type": "Address",
+          "id": 21
+        },
+        "firstDistributeProportion": {
+          "type": "int32",
+          "id": 22
+        },
+        "restPeriodDistributeProportion": {
+          "type": "int32",
+          "id": 23
+        },
+        "periodDuration": { "type": "int64", "id": 24 }
+      }
+    }
+  }
+}

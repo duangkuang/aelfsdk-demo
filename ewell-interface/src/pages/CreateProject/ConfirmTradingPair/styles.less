@@ -1,0 +1,43 @@
+@import '@assets/theme/color.less';
+@import '@assets/theme/constants.less';
+
+.trading-page {
+  max-width: 438px;
+  margin: 48px auto 0;
+
+  .link-text {
+    font-weight: 500;
+    color: @font-2;
+    cursor: pointer;
+  }
+
+  .select-arrow-up {
+    transform: rotate(180deg);
+    transition: transform .3s;
+  }
+
+  .select-arrow-down {
+    transition: transform .3s;
+  }
+
+  .token-empty {
+
+    .empty-wrapper {
+      max-height: 310px;
+      min-height: 118px;
+    }
+
+    .wrapper-height-mobile {
+      height: calc(100vh - @header-height - @mobile-footer-height - 386px);
+    }
+
+    .wrapper-height-pc {
+      height: calc(100vh - @header-height - @footer-height - 386px);
+    }
+
+    .empty-icon {
+      height: 80px;
+      width: 80px;
+    }
+  }
+}

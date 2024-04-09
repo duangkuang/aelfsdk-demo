@@ -1,0 +1,80 @@
+@import '@assets/theme/constants.less';
+@import '@assets/theme/color.less';
+
+.project-card {
+  width: 100%;
+  padding: 24px;
+  border-radius: 8px;
+  border: 1px solid @border-1;
+  color: @font-1;
+
+  .project-img {
+    width: 100%;
+    height: auto;
+    border-radius: 6px;
+    aspect-ratio: 1.7777;
+  }
+
+  .project-card-info {
+    .project-card-logo {
+      width: 48px;
+      height: 48px;
+      margin-right: 12px;
+      img {
+        height: 40px;
+        width: 40px;
+      }
+    }
+    .project-name {
+      color: @font-1;
+      font-size: 16px;
+      font-weight: 500;
+      line-height: 24px;
+      .text-overflow(1);
+    }
+  }
+
+  .project-summary {
+    font-size: 14px;
+    line-height: 22px;
+    height: 44px;
+    word-wrap: break-word;
+    white-space: break-spaces;
+    .text-overflow(2);
+  }
+  .project-community {
+    height: 16px;
+    .project-community-img {
+      width: 16px;
+      height: 16px;
+    }
+  }
+
+  .project-card-sale {
+    span {
+      font-size: 12px;
+      line-height: 20px;
+    }
+    .supply-token {
+      height: 20px;
+      .text-overflow(1);
+    }
+  }
+
+  &:active,
+  &:hover {
+    box-shadow: 0 4px 16px 0 rgb(7 10 38 / 16%);
+    transform: translateY(-8px);
+    transition: all 0.3s;
+    cursor: pointer;
+  }
+
+  .project-name-wrap {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    .project-status-tag {
+      align-self: flex-start;
+    }
+  }
+}

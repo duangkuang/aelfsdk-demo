@@ -1,0 +1,40 @@
+@import '../../assets/theme/color.less';
+@import '../../assets/theme/constants.less';
+
+.common-menu-drawer {
+  .ewell-drawer-content-wrapper {
+    box-shadow: none;
+  }
+
+  .common-drawer-area {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  .common-drawer-header {
+    margin: auto;
+    height: @header-height;
+    width: 100%;
+    justify-content: space-between;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0 16px;
+    flex-shrink: 0;
+  }
+  .common-drawer-header-logo {
+    height: 24px;
+  }
+  .common-drawer-close-btn {
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+  }
+
+  .common-drawer-content {
+    flex: 1;
+    padding-bottom: 16px;
+    overflow-y: auto;
+  }
+}

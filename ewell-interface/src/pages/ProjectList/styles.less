@@ -1,0 +1,33 @@
+@import '../../assets/theme/constants.less';
+@import '../../assets/theme/color.less';
+
+.project-list {
+  width: 100%;
+
+  .project-page {
+    padding-top: 24px;
+
+    .project-type {
+      color: @font-1;
+      font-size: 24px;
+      font-weight: 500;
+      line-height: 32px;
+      margin-bottom: 16px;
+    }
+
+    .project-empty-full {
+      height: calc(100vh - @header-height - @footer-height - 72px);
+    }
+    
+    .mobile-project-empty-full {
+      height: calc(100vh - @header-height - @mobile-footer-height - 72px);
+    }
+
+    .project-list-wrapper {
+      margin-bottom: 48px;
+      .infinite-scroll-component {
+        overflow: none;
+      }
+    }
+  }
+}

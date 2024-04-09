@@ -1,0 +1,39 @@
+@import '@assets/theme/color.less';
+
+.join-card-wrapper {
+  padding: 24px;
+  .project-progress-text {
+    font-size: 16px;
+    line-height: 24px;
+  }
+  .countdown-wrapper {
+    .@{app-prefix}-statistic-content {
+      font-size: 14px;
+      line-height: 22px;
+    }
+  }
+  .purchase-input-number-wrapper {
+    margin: 0;
+  }
+  .purchase-input-number {
+    width: 100%;
+    .@{app-prefix}-input-number {
+      border-right: none;
+    }
+    .@{app-prefix}-input-number-group-addon {
+      padding-left: 0;
+    }
+    .max-operation-wrapper {
+      padding-left: 12px;
+      border-left: 1px solid @border-1;
+      .max-operation {
+        &:hover {
+          color: @font-5;
+        }
+        &:active {
+          color: @font-6;
+        }
+      }
+    }
+  }
+}
