@@ -1,0 +1,56 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+        <RootNamespace>AElf.Contracts.BaccartContract</RootNamespace>
+        <IsContract>true</IsContract>
+        <CheckForOverflowUnderflow>true</CheckForOverflowUnderflow>
+		<Version>1.0.1.1</Version>
+    </PropertyGroup>
+    <PropertyGroup>
+        <ObjPath>$(MSBuildProjectDirectory)/$(BaseIntermediateOutputPath)$(Configuration)/$(TargetFramework)/</ObjPath>
+    </PropertyGroup>
+
+    <Target Name="ProtoGeneratedRecognition" AfterTargets="CoreCompile">
+        <ItemGroup>
+            <Compile Include="$(ObjPath)Protobuf/**/*.cs" />
+        </ItemGroup>
+    </Target>
+
+    <ItemGroup>
+      <None Remove="Protobuf\contract\acs12.proto" />
+      <None Remove="Protobuf\contract\baccart_contract.proto" />
+      <None Remove="Protobuf\contract\token_contract.proto" />
+      <None Remove="Protobuf\message\authority_info.proto" />
+      <None Remove="Protobuf\reference\acs12.proto" />
+      <None Remove="Protobuf\reference\acs6.proto" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Protobuf Include="Protobuf\reference\acs6.proto" ContractServices="None">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Protobuf>
+      <Protobuf Include="Protobuf\reference\acs12.proto" ContractServices="None">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Protobuf>
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="AElf.Sdk.CSharp" Version="1.5.0" />
+        <PackageReference Include="AElf.Tools" Version="1.0.2">
+            <PrivateAssets>all</PrivateAssets>
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+    </ItemGroup>
+
+    <ItemGroup>
+      <Protobuf Include="Protobuf\contract\baccart_contract.proto" ContractServices="Server" ProtoRoot="Protobuf\">
+        <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      </Protobuf>
+      <Protobuf Include="Protobuf\contract\token_contract.proto" ContractServices="None">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Protobuf>
+      <Protobuf Include="Protobuf\message\authority_info.proto" />
+    </ItemGroup>
+
+</Project>
+    
