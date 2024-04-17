@@ -9,11 +9,12 @@ using AElf.Sdk.CSharp;
 using AElf.Types;
 using Google.Protobuf.Collections;
 using Google.Protobuf.WellKnownTypes;
+using AElf.Contracts.Consensus.AEDPoS;
 
 namespace AElf.Contracts.BaccartContract
 {
     // The state class is access the blockchain state
-    public class BaccartContractState : ContractState 
+    public partial class BaccartContractState : ContractState 
     {
         // A state that holds string value
         public StringState Message { get; set; }

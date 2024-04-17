@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
         <TargetFramework>net6.0</TargetFramework>
         <RootNamespace>AElf.Contracts.BaccartContract</RootNamespace>
@@ -46,6 +46,25 @@
 
     <ItemGroup>
         <ProjectReference Include="../src/BaccartContract.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Protobuf Update="Protobuf\message\authority_info.proto" ContractServices="None" />
+      <Protobuf Update="Protobuf\stub\baccart_contract.proto" ProtoCompile="true">
+        <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+        <ProtoRoot>Protobuf\</ProtoRoot>
+        <ContractServices>Server</ContractServices>
+      </Protobuf>
+
+		<Protobuf Include="Protobuf\reference\acs12.proto" ContractServices="None">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Protobuf>
+		<Protobuf Include="Protobuf\reference\acs6.proto" ContractServices="None">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Protobuf>
+		<Protobuf Include="Protobuf\reference\token_contract.proto" ContractServices="None">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Protobuf>
     </ItemGroup>
     
 </Project>

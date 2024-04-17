@@ -13,6 +13,9 @@ using System.Text;
 using Google.Protobuf;
 using AElf.Standards.ACS12;
 using AElf.Standards.ACS6;
+using System.IO;
+using System.Numerics;
+using AElf.Contracts.Consensus.AEDPoS;
 
 namespace AElf.Contracts.BaccartContract
 {
@@ -37,30 +40,35 @@ namespace AElf.Contracts.BaccartContract
         {
             // Retrieve the value from the state
             var value = State.House.Value;
-            var value2 = GetRandomBytes(BytesValue.Parser.ParseFrom(Context.CurrentHeight.ToBytes()));
+            StringValue v = StringValue.Parser.ParseFrom(value.Value);
+            //var value2 = GetRandomBytes(BytesValue.Parser.ParseFrom(Context.CurrentHeight.ToBytes()));
             //// Wrap the value in the return type
             Context.Fire(new UpdatedMessage
             {
-                Value = Base58CheckEncoding.Encode(value.ToByteArray())
+                Value = Base58CheckEncoding.Encode(v.ToByteArray())
             });
-            Context.Fire(new UpdatedMessage
-            {
-                Value = value2.Value.ToString()
-            });
+            //Context.Fire(new UpdatedMessage
+            //{
+            //    Value = value2.Value.ToString()
+            //});
             return new StringValue
             {
-                Value = Base58CheckEncoding.Encode(value.ToByteArray())
+                Value = "hello world"
             };
         }
 
         public override Empty Initialize(Empty input)
         {
-            if (State.Initialized.Value)    
-            {
-                return new Empty();
-            }
-            Address house = new Address { Value = ByteString.CopyFromUtf8("HLkgCtZrQ5ovScTf69EECrUp9o78eRX5ZK4hssxJ3KFw3yvsZ") };
-            State.House.Value = house;
+            //if (State.Initialized.Value)    
+            //{
+            //    return new Empty();
+            //}
+            //Address house = new Address { Value = ByteString.CopyFromUtf8("HLkgCtZrQ5ovScTf69EECrUp9o78eRX5ZK4hssxJ3KFw3yvsZ") };
+            State.House.Value = Context.Sender;
+
+            State.ConsensusContract.Value =
+                Context.GetContractAddressByName(SmartContractConstants.ConsensusContractSystemName);
+
             State.Initialized.Value = true;
             return new Empty();
         }
@@ -72,12 +80,57 @@ namespace AElf.Contracts.BaccartContract
             return new Empty();
         }
 
-        public override Empty PlaceBet(Bet input)
+        public override Empty TransferTest(Empty input)
         {
-            var totalBetAmount = input.BankerAmount + input.PlayerAmount + input.TieAmount + input.BankerPairAmount + input.PlayerPairAmount;
+           
+            var tokenContractAddress = Context.GetContractAddressByName(SmartContractConstants.TokenContractSystemName);
+            Context.SendInline(tokenContractAddress, "TransferFrom", new TransferFromInput
+            {
+                From = Context.Sender,
+                To = State.House.Value,
+                Symbol = "ELF",
+                Amount = 500000000
+            });
+            return new Empty();
+        }
+
+        public override Empty PlaceBet(StringValue input)
+        {
+            var bet_dict = input.Value.Split(" ");
+            Bet bet = new Bet();
+            bet.BankerAmount = long.Parse(bet_dict[0]);
+            bet.BankerAmount = long.Parse(bet_dict[1]);
+            bet.BankerAmount = long.Parse(bet_dict[2]);
+            bet.BankerAmount = long.Parse(bet_dict[3]);
+            bet.BankerAmount = long.Parse(bet_dict[4]);
+            var totalBetAmount = bet.BankerAmount + bet.PlayerAmount + bet.TieAmount + bet.BankerPairAmount + bet.PlayerPairAmount;
             // Assert(Context.Transaction.Value == totalBetAmount, "Bet amounts do not match sent value");
-            State.Bets[Context.Sender] = input;
+            State.Bets[Context.Sender] = bet;
             State.PlayerBalances[Context.Sender] += totalBetAmount;
+            Context.Fire(new UpdatedMessage
+            {
+                Value = totalBetAmount.ToString() + "    "+ State.PlayerBalances[Context.Sender].ToString()
+            });
+            //Context.Fire(new UpdatedMessage
+            //{
+            //    Value =
+            //    Context.GetContractAddressByName("eCHfp7D7TxHAMnBKJntwdJTSgL4yTYw6X2PoNM33ozT3ef3NQ").Value.ToString()
+            //});
+            //Context.Fire(new UpdatedMessage
+            //{
+            //    Value =
+            //    Context.GetContractAddressByName("baccartgame").Value.ToString()
+            //});
+
+            var tokenContractAddress = Context.GetContractAddressByName(SmartContractConstants.TokenContractSystemName);
+            // 调用后 提示 余额不足
+            Context.SendInline(tokenContractAddress, "TransferFrom", new TransferFromInput
+            {
+                From = Context.Sender,
+                To = State.House.Value,
+                Symbol = "ELF",
+                Amount = totalBetAmount
+            });
             return new Empty();
         }
 
@@ -86,8 +139,7 @@ namespace AElf.Contracts.BaccartContract
             Assert(State.PlayerBalances[Context.Sender] != null && State.PlayerBalances[Context.Sender] > 0, "No bet placed");
             var bet = State.Bets[Context.Sender];
             var totalBetAmount = bet.BankerAmount + bet.PlayerAmount + bet.TieAmount + bet.BankerPairAmount + bet.PlayerPairAmount;
-            Assert(totalBetAmount > 0 && totalBetAmount == State.PlayerBalances[Context.Sender], "Invalid bet amount");
-
+            Assert(totalBetAmount > 0 && totalBetAmount <= State.PlayerBalances[Context.Sender], "Invalid bet amount");
             // Simulating DrawCard function. Randomness needs to be handled differently in AElf.
             var gameResult = new GameResult
             {
@@ -218,7 +270,7 @@ namespace AElf.Contracts.BaccartContract
             {
                 // Assuming house is capable of receiving the transaction
                 var tokenContractAddress = Context.GetContractAddressByName(SmartContractConstants.TokenContractSystemName);
-                Context.SendInline(tokenContractAddress, "Transfer", new TransferFromInput
+                Context.SendInline(tokenContractAddress, "TransferFrom", new TransferFromInput
                 {
                     From = Context.Sender,
                     To = State.House.Value,
@@ -230,7 +282,7 @@ namespace AElf.Contracts.BaccartContract
             {
                 // Context.SendInline(player, payout - totalBetAmount);
                 var tokenContractAddress = Context.GetContractAddressByName(SmartContractConstants.TokenContractSystemName);
-                Context.SendInline(tokenContractAddress, "Transfer", new TransferFromInput
+                Context.SendInline(tokenContractAddress, "TransferFrom", new TransferFromInput
                 {
                     From = State.House.Value,
                     To = player,
@@ -238,7 +290,7 @@ namespace AElf.Contracts.BaccartContract
                     Amount = payout
                 });
             }
-            State.PlayerBalances[player] =  0; // Reset player's balance
+            State.PlayerBalances[player] -=  totalBetAmount; // Reset player's balance
             return new Empty();
         }
 
@@ -250,7 +302,7 @@ namespace AElf.Contracts.BaccartContract
             State.PlayerBalances[Context.Sender] = 0;
             // Context.SendInline(Context.Sender, amount);
             var tokenContractAddress = Context.GetContractAddressByName(SmartContractConstants.TokenContractSystemName);
-                Context.SendInline(tokenContractAddress, "Transfer", new TransferFromInput
+                Context.SendInline(tokenContractAddress, "TransferFrom", new TransferFromInput
                 {
                     From = State.House.Value,
                     To = Context.Sender,
@@ -259,8 +311,7 @@ namespace AElf.Contracts.BaccartContract
                 });;
             return new Empty();
         }
-    
-
+  
         // Placeholder for a more sophisticated randomness solution
         private int DrawCard()
         {
@@ -272,18 +323,24 @@ namespace AElf.Contracts.BaccartContract
 
         public override BytesValue GetRandomBytes(BytesValue input)
         {
-            var serializedInput = new GetRandomBytesInput();
-            serializedInput.MergeFrom(input.Value);
-            var value = new Hash();
-            value.MergeFrom(serializedInput.Value);
-            var randomHashFromContext = Context.GetRandomHash(value);
+            //var serializedInput = new GetRandomBytesInput();
 
-            return new BytesValue
+            //serializedInput.MergeFrom(GetRandomBytesInput.Parser.ParseFrom(Context.CurrentHeight.ToBytes()));
+            //var value = new Hash();
+            //value.MergeFrom(serializedInput.Value);
+            //var randomHashFromContext = Context.GetRandomHash(value);
+
+            //return new BytesValue
+            //{
+            //    Value = serializedInput.Kind == 1
+            //        ? new BytesValue { Value = randomHashFromContext.Value }.ToByteString()
+            //        : new Int64Value { Value = Context.ConvertHashToInt64(randomHashFromContext, 1, 10000) }.ToByteString()
+            //};
+            var randomHash = State.ConsensusContract.GetRandomHash.Call(new Int64Value
             {
-                Value = serializedInput.Kind == 1
-                    ? new BytesValue { Value = randomHashFromContext.Value }.ToByteString()
-                    : new Int64Value { Value = Context.ConvertHashToInt64(randomHashFromContext, 1, 10000) }.ToByteString()
-            };
+                Value = Context.CurrentHeight
+            });
+            return BytesValue.Parser.ParseFrom(randomHash);
         }
     }
     

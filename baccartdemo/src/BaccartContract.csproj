@@ -4,7 +4,7 @@
         <RootNamespace>AElf.Contracts.BaccartContract</RootNamespace>
         <IsContract>true</IsContract>
         <CheckForOverflowUnderflow>true</CheckForOverflowUnderflow>
-		<Version>1.0.1.1</Version>
+		<Version>1.0.3.4</Version>
     </PropertyGroup>
     <PropertyGroup>
         <ObjPath>$(MSBuildProjectDirectory)/$(BaseIntermediateOutputPath)$(Configuration)/$(TargetFramework)/</ObjPath>
@@ -18,23 +18,28 @@
 
     <ItemGroup>
       <None Remove="Protobuf\contract\acs12.proto" />
+      <None Remove="Protobuf\contract\acs6.proto" />
       <None Remove="Protobuf\contract\baccart_contract.proto" />
       <None Remove="Protobuf\contract\token_contract.proto" />
       <None Remove="Protobuf\message\authority_info.proto" />
-      <None Remove="Protobuf\reference\acs12.proto" />
-      <None Remove="Protobuf\reference\acs6.proto" />
+      <None Remove="Protobuf\reference\aedpos_contract.proto" />
+      <None Remove="Protobuf\reference\aedpos_contract_impl.proto" />
     </ItemGroup>
 
     <ItemGroup>
-      <Protobuf Include="Protobuf\reference\acs6.proto" ContractServices="None">
-        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      </Protobuf>
+      <Protobuf Include="Protobuf\message\authority_info.proto" ContractServices="None" />
       <Protobuf Include="Protobuf\reference\acs12.proto" ContractServices="None">
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </Protobuf>
+      <Protobuf Include="Protobuf\reference\aedpos_contract.proto" ContractServices="Server" ProtoRoot="Protobuf\" />
+      <Protobuf Include="Protobuf\reference\aedpos_contract_impl.proto" ContractServices="Server" ProtoRoot="Protobuf\" />
+      <Protobuf Include="Protobuf\reference\token_contract.proto" ContractServices="None">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Protobuf>
     </ItemGroup>
 
     <ItemGroup>
+        <PackageReference Include="AElf.Contracts.Consensus.AEDPoS" Version="1.2.2" />
         <PackageReference Include="AElf.Sdk.CSharp" Version="1.5.0" />
         <PackageReference Include="AElf.Tools" Version="1.0.2">
             <PrivateAssets>all</PrivateAssets>
@@ -46,10 +51,6 @@
       <Protobuf Include="Protobuf\contract\baccart_contract.proto" ContractServices="Server" ProtoRoot="Protobuf\">
         <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       </Protobuf>
-      <Protobuf Include="Protobuf\contract\token_contract.proto" ContractServices="None">
-        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      </Protobuf>
-      <Protobuf Include="Protobuf\message\authority_info.proto" />
     </ItemGroup>
 
 </Project>
