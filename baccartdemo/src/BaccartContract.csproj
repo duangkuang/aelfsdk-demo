@@ -17,40 +17,11 @@
     </Target>
 
     <ItemGroup>
-      <None Remove="Protobuf\contract\acs12.proto" />
-      <None Remove="Protobuf\contract\acs6.proto" />
-      <None Remove="Protobuf\contract\baccart_contract.proto" />
-      <None Remove="Protobuf\contract\token_contract.proto" />
-      <None Remove="Protobuf\message\authority_info.proto" />
-      <None Remove="Protobuf\reference\aedpos_contract.proto" />
-      <None Remove="Protobuf\reference\aedpos_contract_impl.proto" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <Protobuf Include="Protobuf\message\authority_info.proto" ContractServices="None" />
-      <Protobuf Include="Protobuf\reference\acs12.proto" ContractServices="None">
-        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      </Protobuf>
-      <Protobuf Include="Protobuf\reference\aedpos_contract.proto" ContractServices="Server" ProtoRoot="Protobuf\" />
-      <Protobuf Include="Protobuf\reference\aedpos_contract_impl.proto" ContractServices="Server" ProtoRoot="Protobuf\" />
-      <Protobuf Include="Protobuf\reference\token_contract.proto" ContractServices="None">
-        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      </Protobuf>
-    </ItemGroup>
-
-    <ItemGroup>
-        <PackageReference Include="AElf.Contracts.Consensus.AEDPoS" Version="1.2.2" />
         <PackageReference Include="AElf.Sdk.CSharp" Version="1.5.0" />
         <PackageReference Include="AElf.Tools" Version="1.0.2">
             <PrivateAssets>all</PrivateAssets>
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
-    </ItemGroup>
-
-    <ItemGroup>
-      <Protobuf Include="Protobuf\contract\baccart_contract.proto" ContractServices="Server" ProtoRoot="Protobuf\">
-        <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-      </Protobuf>
     </ItemGroup>
 
 </Project>

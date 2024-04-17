@@ -8,7 +8,7 @@ package AEDPoS;
 
 import "aelf/options.proto";
 import "aelf/core.proto";
-import "message/authority_info.proto";
+import "Protobuf/message/authority_info.proto";
 import "google/protobuf/empty.proto";
 import "google/protobuf/timestamp.proto";
 import "google/protobuf/wrappers.proto";
@@ -260,7 +260,7 @@ message Round {
     int64 confirmed_irreversible_block_round_number = 8;
     // Is miner list different from the the miner list in the previous round.
     bool is_miner_list_just_changed = 9;
-    // The round id, calculated by summing block producers¡¯ expecting time (second).
+    // The round id, calculated by summing block producersï¿½ï¿½ expecting time (second).
     int64 round_id_for_validation = 10;
 }
 
@@ -475,7 +475,7 @@ message NextRoundInput {
     int64 confirmed_irreversible_block_round_number = 8;
     // Is miner list different from the the miner list in the previous round.
     bool is_miner_list_just_changed = 9;
-    // The round id, calculated by summing block producers¡¯ expecting time (second).
+    // The round id, calculated by summing block producersï¿½ï¿½ expecting time (second).
     int64 round_id_for_validation = 10;
     // The random number.
     bytes random_number = 11;
@@ -501,7 +501,7 @@ message NextTermInput {
     int64 confirmed_irreversible_block_round_number = 8;
     // Is miner list different from the the miner list in the previous round.
     bool is_miner_list_just_changed = 9;
-    // The round id, calculated by summing block producers¡¯ expecting time (second).
+    // The round id, calculated by summing block producersï¿½ï¿½ expecting time (second).
     int64 round_id_for_validation = 10;
     // The random number.
     bytes random_number = 11;
