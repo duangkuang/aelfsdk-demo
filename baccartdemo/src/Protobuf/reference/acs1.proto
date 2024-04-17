@@ -6,7 +6,7 @@ import public "aelf/options.proto";
 import public "google/protobuf/empty.proto";
 import public "google/protobuf/wrappers.proto";
 import "aelf/core.proto";
-import "message/authority_info.proto";
+import "Protobuf/message/authority_info.proto";
 
 option (aelf.identity) = "acs1";
 option csharp_namespace = "AElf.Standards.ACS1";

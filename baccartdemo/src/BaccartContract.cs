@@ -1,21 +1,8 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using AElf;
-using AElf.CSharp.Core;
-using AElf.CSharp.Core.Extension;
 using AElf.Sdk.CSharp;
 using AElf.Types;
-using Google.Protobuf.Collections;
 using Google.Protobuf.WellKnownTypes;
 using AElf.Contracts.MultiToken;
-using System.Text;
 using Google.Protobuf;
-using AElf.Standards.ACS12;
-using AElf.Standards.ACS6;
-using System.IO;
-using System.Numerics;
-using AElf.Contracts.Consensus.AEDPoS;
 
 namespace AElf.Contracts.BaccartContract
 {
@@ -340,7 +327,7 @@ namespace AElf.Contracts.BaccartContract
             {
                 Value = Context.CurrentHeight
             });
-            return BytesValue.Parser.ParseFrom(randomHash);
+            return BytesValue.Parser.ParseFrom(randomHash.ToByteArray());
         }
     }
     
