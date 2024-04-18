@@ -308,7 +308,7 @@ namespace AElf.Contracts.BaccartContract
             return (int)(Context.CurrentHeight % 13 + 1); // This is NOT secure or fair; just a placeholder
         }
 
-        public override BytesValue GetRandomBytes(BytesValue input)
+        public override BytesValue GetRandomBytes(Empty input)
         {
             //var serializedInput = new GetRandomBytesInput();
 
@@ -327,7 +327,8 @@ namespace AElf.Contracts.BaccartContract
             {
                 Value = Context.CurrentHeight
             });
-            return BytesValue.Parser.ParseFrom(randomHash.ToByteArray());
+            randomHash = HashHelper.ConcatAndCompute(randomHash, Context.TransactionId);
+            return randomHash.ToBytesValue();
         }
     }
     

@@ -5,7 +5,6 @@ import "aelf/core.proto";
 import "google/protobuf/empty.proto";
 import "google/protobuf/wrappers.proto";
 import "Protobuf/reference/acs12.proto";
-import "Protobuf/reference/acs6.proto";
 // The namespace of this class
 option csharp_namespace = "AElf.Contracts.BaccartContract";
 
@@ -13,7 +12,6 @@ service BaccartContract {
   // The name of the state class the smart contract is going to use to access blockchain state
   option (aelf.csharp_state) = "AElf.Contracts.BaccartContract.BaccartContractState";
   option (aelf.base) = "Protobuf/reference/acs12.proto";
-  option (aelf.base) = "Protobuf/reference/acs6.proto";
   rpc Initialize (google.protobuf.Empty) returns (google.protobuf.Empty);
   rpc DepositToContract (google.protobuf.Empty) returns (google.protobuf.Empty);
   rpc PlaceBet (google.protobuf.StringValue) returns (google.protobuf.Empty);
@@ -29,6 +27,10 @@ service BaccartContract {
   // Views (methods that don't modify contract state)
   // Get the value stored from contract state
   rpc Read (google.protobuf.Empty) returns (google.protobuf.StringValue) {
+    option (aelf.is_view) = true;
+  }
+
+  rpc GetRandomBytes (google.protobuf.Empty) returns (google.protobuf.BytesValue) {
     option (aelf.is_view) = true;
   }
 }
