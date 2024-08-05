@@ -11,9 +11,9 @@ function baseRequest({ url, method = DEFAULT_METHOD, query = '', ...c }: IBaseRe
   });
 }
 
-Object.entries(EXPAND_APIS).forEach(([key, value]) => {
-  myServer.parseRouter(key, value);
-});
+// Object.entries(EXPAND_APIS).forEach(([key, value]) => {
+//   myServer.parseRouter(key, value);
+// });
 
 const request: EXPAND_REQ_TYPES = Object.assign({}, myServer.base, myServer);
 

@@ -1,5 +1,6 @@
 using AElf.Sdk.CSharp.State;
 using AElf.Types;
+using System.Collections.Generic;
 
 namespace AElf.Contracts.BaccartContract
 {
@@ -16,5 +17,6 @@ namespace AElf.Contracts.BaccartContract
         public MappedState<Address, long> PlayerBalances { get; set; }
         public SingletonState<Address> House { get; set; }
         public SingletonState<long> ContractBalance { get; set; }
+        public SingletonState<long> Salt { get; set; }
     }
 }

@@ -5,6 +5,6 @@ export const useInit = () => {
   const { init: initAssets } = useAssets();
 
   useEffectOnce(() => {
-    initAssets();
+    //initAssets();
   });
 };

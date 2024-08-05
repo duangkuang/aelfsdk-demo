@@ -1,0 +1,36 @@
+@import '../../../../assets/theme/color.less';
+
+.my-control-screen {
+  width: 40px;
+  height: 40px;
+  border: 1px solid @border-1;
+  border-radius: 6px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffffff70;
+  cursor: pointer;
+
+  .img-sound {
+    width: 25px;
+    height: 25px;
+  }
+}
+
+.mobile-site {
+  .my-control-screen {
+    width: 32px;
+    height: 32px;
+    margin-right: 5px;
+    border: 1px solid @border-1;
+    border-radius: 6px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff70;
+    .img-sound {
+      width: 16px;
+      height: 16px;
+    }
+  }
+}

@@ -12,6 +12,7 @@ export type TNetworkConfig = {
   webLoginRequestDefaultsUrl: string;
   webLoginConnectUrl: string;
   ewellContractAddress: string;
+  contractAddress: string;
   whitelistContractAddress: string;
   symbolMarketUrl: string;
   mainChainInfo: {
@@ -31,6 +32,7 @@ export type TNetworkConfig = {
 };
 
 const EWELL_CONTRACT_ADDRESS = process.env.REACT_APP_EWELL_CONTRACT_ADDRESS;
+const BACCART_CONTRACT_ADDRESS = process.env.REACT_APP_BACCART_CONTRACT_ADDRESS;
 const WHITELIST_CONTRACT_ADDRESS = process.env.REACT_APP_WHITELIST_CONTRACT_ADDRESS;
 
 const NETWORK_CONFIG_LIST: Record<string, TNetworkConfig> = {
@@ -45,6 +47,7 @@ const NETWORK_CONFIG_LIST: Record<string, TNetworkConfig> = {
     webLoginRequestDefaultsUrl: 'https://aa-portkey.portkey.finance',
     webLoginConnectUrl: 'https://auth-aa-portkey.portkey.finance',
     ewellContractAddress: EWELL_CONTRACT_ADDRESS || '',
+    contractAddress: BACCART_CONTRACT_ADDRESS || '2mNBizjT37dMGzGoHt8uaTLdLFt1JJxLHcHhtv2U8LPr1Gb42A',
     whitelistContractAddress: WHITELIST_CONTRACT_ADDRESS || '',
     symbolMarketUrl: 'https://www.eforest.finance/symbolmarket',
     mainChainInfo: {
@@ -73,6 +76,7 @@ const NETWORK_CONFIG_LIST: Record<string, TNetworkConfig> = {
     webLoginRequestDefaultsUrl: 'https://aa-portkey-test.portkey.finance',
     webLoginConnectUrl: 'https://auth-aa-portkey-test.portkey.finance',
     ewellContractAddress: EWELL_CONTRACT_ADDRESS || '2EbbUpZLds58keVZPJDLPRbPpxzUYCcjooq6LBiBoRXVTFZTiQ',
+    contractAddress: BACCART_CONTRACT_ADDRESS || 'eCHfp7D7TxHAMnBKJntwdJTSgL4yTYw6X2PoNM33ozT3ef3NQ',
     whitelistContractAddress: WHITELIST_CONTRACT_ADDRESS || '25VDxYFNxujPnPzqzkHxveegoV9wYm5zY72Hv6L7utD1kKu2jZ',
     symbolMarketUrl: 'https://test.eforest.finance/symbolmarket',
     mainChainInfo: {
@@ -101,6 +105,7 @@ const NETWORK_CONFIG_LIST: Record<string, TNetworkConfig> = {
     webLoginRequestDefaultsUrl: 'https://aa-portkey-test.portkey.finance',
     webLoginConnectUrl: 'https://auth-aa-portkey-test.portkey.finance',
     ewellContractAddress: '2EbbUpZLds58keVZPJDLPRbPpxzUYCcjooq6LBiBoRXVTFZTiQ',
+    contractAddress: BACCART_CONTRACT_ADDRESS || 'eCHfp7D7TxHAMnBKJntwdJTSgL4yTYw6X2PoNM33ozT3ef3NQ',
     whitelistContractAddress: '25VDxYFNxujPnPzqzkHxveegoV9wYm5zY72Hv6L7utD1kKu2jZ',
     symbolMarketUrl: 'https://test.eforest.finance/symbolmarket',
     mainChainInfo: {

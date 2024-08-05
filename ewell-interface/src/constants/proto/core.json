@@ -227,6 +227,62 @@
         }
       }
     },
+    "UpdatedMessage":{
+      "fields":{
+        "value":{
+          "type": "string",
+          "id": 1
+        }
+      }
+    },
+    "GameOutcome": {
+      "fields": {
+        "Player": {
+          "type": "Address",
+          "id": 1
+        },
+        "Result": {
+          "type": "GameResult",
+          "id": 2
+        }
+      }
+    },
+    "GameResult": {
+      "fields": {
+        "BankerCard1": {
+          "type": "int32",
+          "id": 1
+        },
+        "BankerCard2": {
+          "type": "int32",
+          "id": 2
+        },
+        "PlayerCard1": {
+          "type": "int32",
+          "id": 3
+        },
+        "PlayerCard2": {
+          "type": "int32",
+          "id": 4
+        },
+        "BankerCard3": {
+          "type": "int32",
+          "id": 5
+        },
+        "PlayerCard3": {
+          "type": "int32",
+          "id": 6
+        },
+        "Outcome": {
+          "type": "string",
+          "id": 7
+        },
+        "Payout": {
+          "type": "int64",
+          "id": 8
+        }
+      }
+    },
     "ProjectRegistered": {
       "fields": {
         "projectId": {

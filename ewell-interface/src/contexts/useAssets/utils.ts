@@ -4,13 +4,13 @@ export type TGetTokenPriceApiResult = {
   price?: number;
 };
 export const getTokenPriceApi = async (baseCoin: string, quoteCoin: string) => {
-  const result = await request.assets.getTokenPrice({
-    params: {
-      baseCoin,
-      quoteCoin,
-    },
-  });
-  return result.data as TGetTokenPriceApiResult;
+  // const result = await request.assets.getTokenPrice({
+  //   params: {
+  //     baseCoin,
+  //     quoteCoin,
+  //   },
+  // });
+  return {price: 0 } as TGetTokenPriceApiResult;
 };
 
 export type TGetTxFeeApiResult = {
@@ -18,5 +18,5 @@ export type TGetTxFeeApiResult = {
 };
 export const getTxFeeApi = async () => {
   const result = await request.assets.getTxFee();
-  return result.data as TGetTxFeeApiResult;
+  return {transactionFee: 0} as TGetTxFeeApiResult;
 };

@@ -6,7 +6,7 @@ export const useBalance = (symbol?: string) => {
   const { getTokenContract } = useViewContract();
   const { wallet } = useWallet();
 
-  const [balance, setBalance] = useState('0');
+  const [balance, setBalance] = useState('-1');
 
   const owner = useMemo(() => wallet?.walletInfo.address, [wallet?.walletInfo.address]);
 

@@ -43,7 +43,7 @@ export const MyButton = () => {
           )}
         </>
       ) : (
-        <Button type="primary" size={isMobile ? 'small' : 'medium'} className="login-btn" onClick={onWalletClick}>
+        <Button style={{ visibility: 'hidden' }} type="primary" size={isMobile ? 'small' : 'medium'} className="login-btn" onClick={onWalletClick}>
           Log In
         </Button>
       )}

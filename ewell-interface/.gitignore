@@ -12,6 +12,7 @@
 /build
 /.idea
 *.tar.gz
+*.zip
 # misc
 .DS_Store
 .env.local

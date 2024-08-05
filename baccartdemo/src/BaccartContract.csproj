@@ -4,7 +4,7 @@
         <RootNamespace>AElf.Contracts.BaccartContract</RootNamespace>
         <IsContract>true</IsContract>
         <CheckForOverflowUnderflow>true</CheckForOverflowUnderflow>
-		<Version>1.0.3.4</Version>
+		<Version>1.0.5.3</Version>
     </PropertyGroup>
     <PropertyGroup>
         <ObjPath>$(MSBuildProjectDirectory)/$(BaseIntermediateOutputPath)$(Configuration)/$(TargetFramework)/</ObjPath>
@@ -22,6 +22,10 @@
             <PrivateAssets>all</PrivateAssets>
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Update="Protobuf\contract\baccart_contract.proto" ContractServices="None" />
     </ItemGroup>
 
 </Project>

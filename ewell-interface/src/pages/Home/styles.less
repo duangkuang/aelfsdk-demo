@@ -1,6 +1,20 @@
 @import '../../assets/theme/constants.less';
 
+.disabled {
+  opacity: 0.5; /* 设置透明度为 0.5，使元素看起来置灰 */
+  cursor: not-allowed; /* 设置鼠标指针样式为禁用样式 */
+  pointer-events: none; /* 禁用鼠标事件 */
+}
+
 .home {
+  .btn-container {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 2;
+    background-color: #ffffff60;
+    border-radius: 6px;
+  }
   .home-body {
     display: flex;
     align-items: center;
@@ -28,7 +42,7 @@
       position: relative;
       // background-size: contain;
       background-repeat: no-repeat;
-      background-position: center center;
+      background-position: center 0;
       width: 100%;
       aspect-ratio: 1;
     }
@@ -270,5 +284,194 @@
         }
       }
     }
+  }
+}
+
+.modal-container .ewell-progress-text,
+.with-draw-modal .ewell-progress-text {
+  color: #fff;
+}
+
+.mask {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 999;
+  display: flex;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.6);
+  .modal-container {
+    width: 60vmax;
+    max-width: 440px;
+    height: auto;
+    max-height: 250px;
+    margin-top: 10vmin;
+    padding: 20px 30px;
+    font-size: 15px;
+    position: relative;
+    color: #fff;
+    border-radius: 15px;
+    background-color: #b2314b;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    .img-close {
+      width: 20px;
+      cursor: pointer;
+      position: absolute;
+      right: 10px;
+      top: 10px;
+      z-index: 99;
+    }
+    .display-none {
+      display: none;
+      cursor: pointer;
+    }
+
+    .grid-container {
+      width: 100%;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr); /* 定义两列 */
+      grid-gap: 10px; /* 设置间距示例 */
+      .item {
+        line-height: 2;
+      }
+    }
+    .desc-content {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start;
+      .progress-bar {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+    }
+    .confirm-bet-text {
+      margin-top: 10px;
+      font-weight: 600;
+    }
+    .cus-tr {
+      line-height: 2;
+    }
+    .cus-tr-l {
+      width: 100%;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      padding-right: 10px;
+    }
+    .cus-tr-title {
+      font-weight: 600;
+    }
+    .cus-tr-title-spec {
+      display: inline-block;
+    }
+    .cus-tr-md {
+      width: 100%;
+      height: 30px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .text-grey {
+      color: #888;
+    }
+    .btns {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      .ok-btn {
+        width: 50%;
+        height: 40px;
+        margin-top: 15px;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 55px;
+        font-weight: bold;
+        color: #fff;
+        background-color: #feb800;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+      }
+    }
+    .withdraw-text {
+      margin-top: 10px;
+      line-height: 1.5;
+    }
+  }
+  .with-draw-modal {
+    width: 65vmin;
+    min-width: 440px;
+    max-width: 480px;
+    height: auto;
+    max-height: 210px;
+  }
+  .tip-charge-modal {
+
+    width: 65vmin;
+    min-width: 440px;
+    max-width: 480px;
+    height: auto;
+    max-height: 240px;
+
+
+    margin-top: 10vmin;
+    padding: 20px 30px;
+    font-size: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    flex-grow: 0;
+    border-radius: 15px;
+    color: #fff;
+    background-color: #b2314b;
+    .title-tip {
+      width: 100%;
+      text-align: center;
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+    .withdraw-text {
+      line-height: 1.5;
+    }
+    .btns {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      .ok-btn {
+        width: 50%;
+        height: 40px;
+        margin-top: 15px;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 55px;
+        font-weight: bold;
+        color: #fff;
+        background-color: #feb800;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+      }
+    }
+  }
+}
+
+@media (orientation: portrait) {
+  .game-wrap {
+    transform: rotate(90deg);
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 1;
   }
 }

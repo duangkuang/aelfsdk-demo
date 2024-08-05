@@ -12,13 +12,11 @@
     "pkg:dev": "rm -rf build* && npm run build && tar -zcvf ewell-build.tar.gz build"
   },
   "dependencies": {
-    "@aelf-react/core": "^0.1.15",
     "@ant-design/icons": "^4.7.0",
     "@aws-sdk/client-s3": "^3.490.0",
     "@aws-sdk/credential-provider-cognito-identity": "^3.490.0",
     "@craco/craco": "^7.1.0",
-    "@portkey-v1/did-ui-react": "1.5.4-alpha.22",
-    "@portkey/did-ui-react": "^2.2.0",
+    "@portkey/did-ui-react": "^2.7.1-alpha.4",
     "@react-spring/web": "^9.7.0",
     "@sentry/react": "^7.104.0",
     "@testing-library/jest-dom": "^5.11.4",
@@ -26,7 +24,7 @@
     "@testing-library/user-event": "^12.1.10",
     "aelf-design": "^0.1.70-alpha.0",
     "aelf-sdk": "^3.2.45-beta.0",
-    "aelf-web-login": "^2.0.1-beta.0",
+    "aelf-web-login": "^2.1.2",
     "antd": "^5.13.1",
     "antd-style": "^3.6.1",
     "axios": "^0.24.0",
@@ -93,4 +91,5 @@
     "*.{js,jsx,ts,tsx}": "eslint --cache --fix",
     "*.{css,less}": "stylelint --fix"
   }
+
 }

@@ -65,7 +65,8 @@ export const CommonDrawer = forwardRef(
         mask={false}>
         <div className="common-drawer-area">
           <div className="common-drawer-header">
-            <img className="common-drawer-header-logo" src={logo} alt="logo" />
+            <div></div>
+            {/* <img className="common-drawer-header-logo" src={logo} alt="logo" /> */}
             <img
               className="common-drawer-close-btn"
               src={closeBtnSvg}

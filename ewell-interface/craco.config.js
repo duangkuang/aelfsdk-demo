@@ -38,6 +38,9 @@ const Webpack = {
 };
 
 module.exports = {
+  eslint:{
+    enable: false,
+  },
   devServer: {
     port: 3002,
     proxy: {
